@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Bumesh Technics — Precision Tier-2 Manufacturing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --anthracite-900:#17181b;
+    --anthracite-700:#24262a;
+    --anthracite-500:#3a3d42;
+    --orange:#e2570f;
+    --orange-dim:#b8480e;
+    --paper:#f1efe8;
+    --paper-dark:#e6e2d7;
+    --steel:#71767f;
+    --ink:#1c1d20;
+    --line: rgba(28,29,32,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin:0;
+    line-height:0.95;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 20px; } }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--orange);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--anthracite-900);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0;
+  }
+  .logo{
+    color:var(--paper);
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:0.02em;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .logo span{ color:var(--orange); }
+  nav{ display:flex; gap:28px; align-items:center; }
+  nav a{
+    color:#c7c9cd;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  nav a:hover{ color:var(--paper); }
+  .header-contact{
+    color:#9a9ea5;
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    display:none;
+  }
+  @media (min-width:900px){ .header-contact{ display:block; } }
+  .nav-toggle{ display:none; background:none; border:none; color:var(--paper); font-size:24px; cursor:pointer; }
+  @media (max-width:820px){
+    nav{ display:none; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--anthracite-900);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items:center;
+    gap:40px;
+    padding:88px 0 64px;
+  }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; padding:56px 0 40px; gap:32px; }
+  }
+  .hero h1{
+    font-size:clamp(40px, 6vw, 72px);
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--orange);
+  }
+  .hero p.lead{
+    max-width:46ch;
+    margin-top:22px;
+    color:#b7bac0;
+    font-size:17px;
+  }
+  .cta-row{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:2px;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--orange); color:#17181b; }
+  .btn-primary:hover{ background:#f16a1f; }
+  .btn-outline{ border-color:rgba(241,239,232,0.35); color:var(--paper); }
+  .btn-outline:hover{ border-color:var(--paper); }
+
+  .diagram-holder{ display:flex; justify-content:center; }
+  .diagram-holder svg{ width:100%; height:auto; max-width:460px; }
+  .draw-line{
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 1.8s ease-out forwards;
+  }
+  .draw-line.d2{ animation-delay:0.25s; }
+  .draw-line.d3{ animation-delay:0.5s; }
+  .fade-label{ opacity:0; animation: fadein 0.6s ease-out forwards; animation-delay:1.4s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes fadein{ to{ opacity:1; } }
+
+  /* ---------- spec strip ---------- */
+  .spec-strip{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .spec-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  @media (max-width:700px){ .spec-row{ grid-template-columns:repeat(2,1fr); } }
+  .spec-cell{
+    padding:28px 24px;
+    border-left:1px solid var(--line);
+    text-align:left;
+  }
+  .spec-cell:first-child{ border-left:none; }
+  @media (max-width:700px){
+    .spec-cell:nth-child(2n+1){ border-left:none; }
+    .spec-cell:nth-child(n+3){ border-top:1px solid var(--line); }
+  }
+  .spec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:30px;
+    font-weight:500;
+    color:var(--orange-dim);
+  }
+  .spec-label{
+    margin-top:6px;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--steel);
+  }
+
+  /* ---------- section shell ---------- */
+  section{ padding:76px 0; }
+  .section-head{ max-width:56ch; margin-bottom:44px; }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--orange-dim);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{ font-size:clamp(28px,4vw,40px); }
+  .section-head p{ color:var(--steel); margin-top:14px; font-size:15.5px; }
+
+  /* ---------- process ---------- */
+  .process{ background:var(--paper); }
+  .process-line{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:820px){ .process-line{ grid-template-columns:1fr; } }
+  .process-step{
+    padding:32px 28px 32px 0;
+    border-right:1px solid var(--line);
+  }
+  @media (max-width:820px){
+    .process-step{ border-right:none; border-bottom:1px solid var(--line); padding:28px 0; }
+  }
+  .process-line .process-step:last-child{ border-right:none; }
+  .step-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--orange);
+    font-size:14px;
+  }
+  .process-step h3{
+    font-size:24px;
+    margin-top:10px;
+    color:var(--ink);
+  }
+  .process-step p{ color:var(--steel); font-size:14.5px; margin-top:10px; max-width:32ch; }
+
+  /* ---------- products ---------- */
+  .products{ background:var(--paper-dark); }
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:900px){ .product-grid{ grid-template-columns:repeat(2,1fr); } }
+  .product-card{
+    background:var(--paper);
+    padding:30px 24px;
+  }
+  .product-card svg{ width:44px; height:44px; }
+  .product-card h3{
+    font-size:19px;
+    margin-top:18px;
+    color:var(--ink);
+  }
+  .product-card p{ color:var(--steel); font-size:13.5px; margin-top:8px; }
+
+  /* ---------- technology ---------- */
+  .tech{ background:var(--paper); }
+  .tech-split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+  }
+  @media (max-width:820px){ .tech-split{ grid-template-columns:1fr; } }
+  .tech-item{ border-top:2px solid var(--ink); padding-top:18px; }
+  .tech-item h3{ font-size:22px; }
+  .tech-item p{ color:var(--steel); font-size:14.5px; margin-top:10px; max-width:38ch; }
+
+  /* ---------- certifications ---------- */
+  .certs{
+    background:var(--anthracite-900);
+    color:var(--paper);
+  }
+  .certs .section-head p{ color:#a6a9af; }
+  .cert-row{ display:flex; gap:28px; flex-wrap:wrap; }
+  .seal{
+    width:118px; height:118px; border-radius:50%;
+    border:2px solid rgba(241,239,232,0.25);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    position:relative;
+    flex-shrink:0;
+  }
+  .seal.active{ border-color:var(--orange); }
+  .seal-inner{ font-family:'IBM Plex Mono', monospace; font-size:11px; line-height:1.4; padding:8px; }
+  .seal.active .seal-inner{ color:var(--orange); }
+  .seal:not(.active) .seal-inner{ color:#7d8087; }
+  .cert-note{ margin-top:26px; color:#8d9096; font-size:13px; }
+
+  /* ---------- contact ---------- */
+  .contact{ background:var(--paper); }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    border-top:1px solid var(--line);
+    padding-top:44px;
+  }
+  @media (max-width:820px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-list{ list-style:none; padding:0; margin:22px 0 0; }
+  .contact-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+  }
+  .contact-list .label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--steel);
+    margin-bottom:4px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--anthracite-900);
+    color:#8d9096;
+    padding:26px 0;
+    font-size:12.5px;
+  }
+  .footer-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="logo" href="#top">BUMESH<span>.</span>TECHNICS</a>
+    <nav>
+      <a href="#company">Company</a>
+      <a href="#process">Process</a>
+      <a href="#products">Products</a>
+      <a href="#technology">Technology</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-contact">+90 541 816 16 58 · info@bumesh.com.tr</div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Precision Tier‑2<br>manufacturing for<br><em>global OEMs</em></h1>
+      <p class="lead">Since 2017, Bumesh Technics designs and builds stamped metal components, production dies, and welding fixtures for the automotive supply chain — from Bursa, Turkey.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#products">View capabilities</a>
+        <a class="btn btn-outline" href="mailto:info@bumesh.com.tr">Request a quote</a>
+      </div>
+    </div>
+    <div class="diagram-holder">
+      <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- stamped hat-section chassis profile, technical drawing style -->
+        <path class="draw-line" d="M60 260 L60 180 L130 180 L150 120 L270 120 L290 180 L360 180 L360 260"
+              stroke="#e2570f" stroke-width="3" stroke-linejoin="round"/>
+        <path class="draw-line d2" d="M40 260 L380 260" stroke="#5b5e63" stroke-width="1.5"/>
+        <!-- dimension lines -->
+        <line class="draw-line d3" x1="150" y1="90" x2="270" y2="90" stroke="#8a8d92" stroke-width="1"/>
+        <line x1="150" y1="84" x2="150" y2="96" stroke="#8a8d92" stroke-width="1"/>
+        <line x1="270" y1="84" x2="270" y2="96" stroke="#8a8d92" stroke-width="1"/>
+        <text class="fade-label mono" x="210" y="78" fill="#b7bac0" font-size="12" text-anchor="middle">142.0 mm</text>
+
+        <line class="draw-line d3" x1="30" y1="180" x2="30" y2="260" stroke="#8a8d92" stroke-width="1"/>
+        <line x1="24" y1="180" x2="36" y2="180" stroke="#8a8d92" stroke-width="1"/>
+        <line x1="24" y1="260" x2="36" y2="260" stroke="#8a8d92" stroke-width="1"/>
+        <text class="fade-label mono" x="8" y="222" fill="#b7bac0" font-size="12" transform="rotate(-90 8 222)">80.0 mm</text>
+
+        <circle class="fade-label" cx="150" cy="120" r="3" fill="#e2570f"/>
+        <circle class="fade-label" cx="270" cy="120" r="3" fill="#e2570f"/>
+        <text class="fade-label mono" x="200" y="330" fill="#71767f" font-size="11" text-anchor="middle">SECTION A–A · DC04 1.5 mm</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="spec-strip">
+  <div class="wrap spec-row">
+    <div class="spec-cell">
+      <div class="spec-num">4,000</div>
+      <div class="spec-label">Floor area (m²)</div>
+    </div>
+    <div class="spec-cell">
+      <div class="spec-num">100+</div>
+      <div class="spec-label">Workforce</div>
+    </div>
+    <div class="spec-cell">
+      <div class="spec-num">300,000</div>
+      <div class="spec-label">Press hours / year</div>
+    </div>
+    <div class="spec-cell">
+      <div class="spec-num">2017</div>
+      <div class="spec-label">Founded, Bursa</div>
+    </div>
+  </div>
+</div>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">HOW A PART IS BUILT</span>
+      <h2>From coil to fixture, in-house</h2>
+      <p>Bumesh runs the three stages a stamped assembly passes through before it reaches an OEM line — engineering and production stay under one roof.</p>
+    </div>
+    <div class="process-line">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Press manufacturing</h3>
+        <p>High-speed sheet metal and aluminium stamping for series production runs.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Die design &amp; build</h3>
+        <p>Tandem, progressive, and transfer dies engineered and built in-house.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Fixture design &amp; build</h3>
+        <p>Welding fixtures and assembly cells for joined, multi-part components.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">WHAT WE PRODUCE</span>
+      <h2>Four component families</h2>
+      <p>Placeholder line diagrams shown below — swap in production photography before client delivery.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M4 30 L10 18 L38 18 L44 30 L44 36 L4 36 Z" stroke="#e2570f" stroke-width="2"/><circle cx="14" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/><circle cx="34" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/></svg>
+        <h3>BIW components</h3>
+        <p>Body-in-white structural parts for chassis and closure assemblies.</p>
+      </div>
+      <div class="product-card">
+        <svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="24" r="9" stroke="#e2570f" stroke-width="2"/><circle cx="34" cy="24" r="5" stroke="#1c1d20" stroke-width="2"/><line x1="24" y1="24" x2="32" y2="24" stroke="#1c1d20" stroke-width="2"/></svg>
+        <h3>Powertrain components</h3>
+        <p>Precision stampings for drivetrain and power transfer assemblies.</p>
+      </div>
+      <div class="product-card">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M8 10 L40 10 L36 40 L12 40 Z" stroke="#e2570f" stroke-width="2"/><path d="M8 10 Q24 22 40 10" stroke="#1c1d20" stroke-width="2"/></svg>
+        <h3>Aluminium heat shields</h3>
+        <p>Lightweight thermal shielding formed to tight tolerance.</p>
+      </div>
+      <div class="product-card">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M6 34 L14 20 L34 20 L42 34" stroke="#e2570f" stroke-width="2"/><line x1="6" y1="34" x2="42" y2="34" stroke="#1c1d20" stroke-width="2"/></svg>
+        <h3>Chassis components</h3>
+        <p>Load-bearing frame sections engineered for stiffness and mass targets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tech" id="technology">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">ON THE FLOOR</span>
+      <h2>Press line &amp; CNC machining</h2>
+    </div>
+    <div class="tech-split">
+      <div class="tech-item">
+        <h3>Press line</h3>
+        <p>Tonnage and automation sized for series production, running tandem and progressive tooling.</p>
+      </div>
+      <div class="tech-item">
+        <h3>CNC machining</h3>
+        <p>In-house machining for tooling components and secondary part operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="certs" id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">QUALITY SYSTEM</span>
+      <h2>Certified to automotive standard</h2>
+    </div>
+    <div class="cert-row">
+      <div class="seal active"><div class="seal-inner mono">ISO<br>9001:2015</div></div>
+      <div class="seal active"><div class="seal-inner mono">IATF<br>16949:2016</div></div>
+      <div class="seal"><div class="seal-inner mono">ISO<br>14001<br>in progress</div></div>
+      <div class="seal"><div class="seal-inner mono">ISO<br>45001<br>in progress</div></div>
+    </div>
+    <p class="cert-note">ISO 14001 and ISO 45001 certification are in progress alongside the existing quality management system.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="kicker">GET IN TOUCH</span>
+      <h2>Talk to our engineering team</h2>
+      <p style="color:var(--steel); margin-top:16px; max-width:44ch;">Send drawings or a sourcing package and we'll come back with feasibility and lead time.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:info@bumesh.com.tr">info@bumesh.com.tr</a>
+      </div>
+    </div>
+    <ul class="contact-list">
+      <li><span class="label">Address</span>Fethiye OSB Mah. Ali Osman Sönmez Blv. No:10, Nilüfer / Bursa, Turkey</li>
+      <li><span class="label">Phone</span>+90 541 816 16 58</li>
+      <li><span class="label">Email</span>info@bumesh.com.tr</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2017–2026 Bumesh Teknik Enerji Otomotiv İnşaat Isıtma Soğutma San. ve Tic. Ltd. Şti.</span>
+    <span>Design concept — not the live bumesh.com.tr site</span>
+  </div>
+</footer>
+
+</body>
+</html>
