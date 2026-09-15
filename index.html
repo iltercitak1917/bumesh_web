@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --anthracite-900:#17181b;
-    --anthracite-700:#24262a;
-    --anthracite-500:#3a3d42;
-    --orange:#e2570f;
-    --orange-dim:#b8480e;
+    --anthracite-900:#1b2431;
+    --anthracite-700:#232f3f;
+    --anthracite-500:#3a4759;
+    --orange:#f48123;
+    --orange-dim:#c9690f;
     --paper:#f1efe8;
     --paper-dark:#e6e2d7;
     --steel:#71767f;
@@ -65,14 +66,15 @@
   }
   .logo{
     color:var(--paper);
-    font-family:'Big Shoulders Display', sans-serif;
-    font-weight:800;
-    font-size:22px;
-    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
     text-decoration:none;
-    white-space:nowrap;
   }
-  .logo span{ color:var(--orange); }
+  .logo svg{
+    width:132px;
+    height:auto;
+    display:block;
+  }
   nav{ display:flex; gap:28px; align-items:center; }
   nav a{
     color:#c7c9cd;
@@ -326,7 +328,27 @@
 
 <header>
   <div class="wrap header-row">
-    <a class="logo" href="#top">BUMESH<span>.</span>TECHNICS</a>
+    <a class="logo" href="#top" aria-label="Bumesh Technics — home">
+      <svg viewBox="0 0 689.4 190.2" xmlns="http://www.w3.org/2000/svg">
+        <g fill="currentColor">
+          <path d="M46.1,110.2H5.7V9.3h37.5c20,0,30,8.7,30,26.2c0,10-3.7,16.9-11.1,20.6v0.3c13.7,1.8,20.6,10.3,20.6,25.7c0,5.1-1,9.5-3.1,13.2s-4.8,6.7-8.4,8.8c-3.5,2.1-7.4,3.6-11.5,4.6C55.5,109.7,51,110.2,46.1,110.2z M31.9,29.4v19.5h2.9c4.3,0,7.7-0.7,10.3-2S49,43,49,39.1c0-2.2-0.4-4-1.3-5.4c-0.8-1.4-2.1-2.4-3.8-2.9c-1.7-0.6-3.3-1-4.7-1.1c-1.4-0.2-3.3-0.3-5.5-0.3C33.7,29.4,31.9,29.4,31.9,29.4z M31.9,68.4v21.7h3.3c2.1,0,3.6,0,4.3,0c0.8,0,2.2-0.1,4.3-0.3c2.1-0.2,3.7-0.5,4.7-0.9s2.2-1,3.6-1.8c1.4-0.8,2.4-1.8,2.9-3.1c0.6-1.3,0.9-2.8,0.9-4.6c0-1.3-0.1-2.5-0.4-3.6c-0.3-1.1-0.7-2-1.4-2.7s-1.3-1.4-1.8-1.9c-0.5-0.6-1.4-1-2.6-1.3c-1.2-0.3-2.1-0.6-2.7-0.8c-0.6-0.2-1.7-0.4-3.3-0.5s-2.6-0.1-3.1-0.1s-1.6,0-3.3,0s-2.7,0-2.9,0L31.9,68.4L31.9,68.4z"/>
+          <path d="M164.2,9.3h26.2V66c0,8.2-0.6,15.1-1.9,20.7c-1.3,5.6-4.2,10.5-8.6,14.9c-7.6,7.5-18.7,11.2-33.4,11.2s-25.9-3.7-33.4-11.2c-4.5-4.4-7.3-9.3-8.6-14.9c-1.3-5.6-1.9-12.5-1.9-20.7V9.3h26.2v53.1c0,3.2,0.1,5.9,0.2,8c0.1,2.1,0.5,4.5,1.2,7.2s1.6,4.8,2.8,6.4s3,3,5.3,4.1s5.1,1.7,8.3,1.7s6-0.6,8.3-1.7s4.1-2.5,5.3-4.1s2.1-3.7,2.8-6.4c0.7-2.7,1.1-5.1,1.2-7.2c0.1-2.1,0.2-4.8,0.2-8V9.3H164.2z"/>
+          <path d="M207.7,110.2L224.8,9.3h25.8l20.5,53.9l21.7-53.9h26.1l15.2,100.9h-26.2l-7.4-58.1h-0.3L276,110.2h-10.4l-23.1-58.1h-0.3l-8.4,58.1H207.7z"/>
+          <path d="M409.2,31.5H378v16.9h29.6v22.2H378V88h31.2v22.2h-57.4V9.3h57.4V31.5z"/>
+          <path d="M497.9,14.9l-10.4,20.3c-5.4-4.5-11.1-6.7-17.4-6.7c-2.8,0-5.3,0.8-7.7,2.3c-2.4,1.5-3.5,3.6-3.5,6.2c0,1.8,0.7,3.4,2.2,4.8c1.5,1.4,2.9,2.4,4.1,2.9c1.3,0.5,3.1,1.2,5.3,1.9l6.7,2c7.8,2.3,14,5.6,18.3,9.8c4.4,4.2,6.6,10.1,6.6,17.7c0,12.2-3.5,21.3-10.4,27.2c-7.5,6.3-17,9.5-28.6,9.5c-12.7,0-24.5-3.8-35.4-11.5l11.2-21.1c7.9,7,15.7,10.4,23.3,10.4c3.4,0,6.4-0.9,8.9-2.6s3.8-4.3,3.8-7.6c0-4.5-4.2-8.1-12.7-10.6c-0.3-0.1-1.3-0.4-3.2-0.9c-4.8-1.3-8.6-2.6-11.4-3.7c-2.8-1.2-5.5-2.8-8.3-4.9c-2.8-2.1-4.7-4.7-5.9-8c-1.2-3.2-1.7-7.2-1.7-11.9c0-10.2,3.3-18.3,9.8-24.5s14.8-9.3,25-9.3c5.1,0,10.5,0.8,16.3,2.3C488.3,10.4,493.4,12.4,497.9,14.9z"/>
+          <path d="M547.4,48.2h37.9V9.3h26.2v100.9h-26.2V68.8h-37.9v41.3h-26.2V9.3h26.2V48.2z"/>
+          <path d="M234.6,138.9v44.5h-14.8v-44.5h-12.3v-12.6h39.3v12.6H234.6z"/>
+          <path d="M288.4,138.9h-17.6v9.5h16.7V161h-16.7v9.8h17.6v12.6H256v-57h32.4V138.9z"/>
+          <path d="M342.1,127.8v17.8c-1.5-2-3.4-3.6-5.7-4.7c-2.3-1.1-4.7-1.6-7.3-1.6c-4.5,0-8.1,1.5-11,4.5c-2.8,3-4.2,6.8-4.2,11.3s1.4,8.3,4.3,11.2c2.8,2.9,6.6,4.3,11.2,4.3c2.4,0,4.8-0.5,7-1.6c2.3-1.1,4.2-2.6,5.7-4.4v17.8c-5.7,1.8-10.1,2.6-13.1,2.6c-8.1,0-15.2-2.8-21.4-8.4c-6.1-5.5-9.1-12.7-9.1-21.6c0-8.2,2.8-15.1,8.4-20.9c2.8-2.9,6.1-5.1,10-6.8c3.8-1.6,7.7-2.5,11.7-2.5C333,124.9,337.5,125.8,342.1,127.8z"/>
+          <path d="M369.9,148.4h21.4v-22h14.8v57h-14.8V160h-21.4v23.4h-14.8v-57h14.8V148.4z"/>
+          <path d="M419.6,183.4v-57h14.8l27.1,34.9h0.2v-34.9h14.8v57h-14.8l-27.1-34.9h-0.2v34.9H419.6z"/>
+          <path d="M504.8,126.4v57H490v-57C490,126.4,504.8,126.4,504.8,126.4z"/>
+          <path d="M559,127.8v17.8c-1.5-2-3.4-3.6-5.7-4.7c-2.3-1.1-4.7-1.6-7.3-1.6c-4.5,0-8.1,1.5-11,4.5c-2.8,3-4.2,6.8-4.2,11.3s1.4,8.3,4.3,11.2c2.8,2.9,6.6,4.3,11.2,4.3c2.4,0,4.8-0.5,7-1.6c2.3-1.1,4.2-2.6,5.7-4.4v17.8c-5.7,1.8-10.1,2.6-13.1,2.6c-8.1,0-15.2-2.8-21.4-8.4c-6.1-5.5-9.2-12.7-9.2-21.6c0-8.2,2.8-15.1,8.4-20.9c2.8-2.9,6.2-5.1,10-6.8c3.8-1.6,7.7-2.5,11.7-2.5C549.8,124.9,554.4,125.8,559,127.8z"/>
+          <path d="M609.1,129.6l-5.9,11.5c-3-2.5-6.3-3.8-9.8-3.8c-1.6,0-3,0.4-4.3,1.3c-1.3,0.9-2,2-2,3.5c0,1,0.4,1.9,1.2,2.7s1.6,1.4,2.3,1.7s1.7,0.7,3,1.1l3.8,1.1c4.4,1.3,7.9,3.2,10.4,5.6c2.5,2.4,3.7,5.7,3.7,10c0,6.9-2,12-5.9,15.3c-4.2,3.6-9.6,5.4-16.2,5.4c-7.2,0-13.8-2.2-20-6.5l6.4-11.9c4.5,3.9,8.9,5.9,13.2,5.9c1.9,0,3.6-0.5,5-1.5s2.2-2.4,2.2-4.3c0-2.6-2.4-4.6-7.2-6c-0.2,0-0.8-0.2-1.8-0.5c-2.7-0.8-4.9-1.5-6.4-2.1c-1.6-0.7-3.1-1.6-4.7-2.8c-1.6-1.2-2.7-2.7-3.3-4.5c-0.7-1.8-1-4.1-1-6.7c0-5.7,1.8-10.4,5.5-13.9s8.4-5.3,14.1-5.3c2.9,0,5.9,0.4,9.2,1.3C603.7,127,606.6,128.2,609.1,129.6z"/>
+        </g>
+        <rect x="643.4" y="6.6" width="39.2" height="178.3" fill="var(--orange)"/>
+      </svg>
+    </a>
     <nav>
       <a href="#company">Company</a>
       <a href="#process">Process</a>
@@ -353,7 +375,7 @@
       <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- stamped hat-section chassis profile, technical drawing style -->
         <path class="draw-line" d="M60 260 L60 180 L130 180 L150 120 L270 120 L290 180 L360 180 L360 260"
-              stroke="#e2570f" stroke-width="3" stroke-linejoin="round"/>
+              stroke="#f48123" stroke-width="3" stroke-linejoin="round"/>
         <path class="draw-line d2" d="M40 260 L380 260" stroke="#5b5e63" stroke-width="1.5"/>
         <!-- dimension lines -->
         <line class="draw-line d3" x1="150" y1="90" x2="270" y2="90" stroke="#8a8d92" stroke-width="1"/>
@@ -366,8 +388,8 @@
         <line x1="24" y1="260" x2="36" y2="260" stroke="#8a8d92" stroke-width="1"/>
         <text class="fade-label mono" x="8" y="222" fill="#b7bac0" font-size="12" transform="rotate(-90 8 222)">80.0 mm</text>
 
-        <circle class="fade-label" cx="150" cy="120" r="3" fill="#e2570f"/>
-        <circle class="fade-label" cx="270" cy="120" r="3" fill="#e2570f"/>
+        <circle class="fade-label" cx="150" cy="120" r="3" fill="#f48123"/>
+        <circle class="fade-label" cx="270" cy="120" r="3" fill="#f48123"/>
         <text class="fade-label mono" x="200" y="330" fill="#71767f" font-size="11" text-anchor="middle">SECTION A–A · DC04 1.5 mm</text>
       </svg>
     </div>
@@ -431,22 +453,22 @@
     </div>
     <div class="product-grid">
       <div class="product-card">
-        <svg viewBox="0 0 48 48" fill="none"><path d="M4 30 L10 18 L38 18 L44 30 L44 36 L4 36 Z" stroke="#e2570f" stroke-width="2"/><circle cx="14" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/><circle cx="34" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/></svg>
+        <svg viewBox="0 0 48 48" fill="none"><path d="M4 30 L10 18 L38 18 L44 30 L44 36 L4 36 Z" stroke="#f48123" stroke-width="2"/><circle cx="14" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/><circle cx="34" cy="36" r="4" stroke="#1c1d20" stroke-width="2"/></svg>
         <h3>BIW components</h3>
         <p>Body-in-white structural parts for chassis and closure assemblies.</p>
       </div>
       <div class="product-card">
-        <svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="24" r="9" stroke="#e2570f" stroke-width="2"/><circle cx="34" cy="24" r="5" stroke="#1c1d20" stroke-width="2"/><line x1="24" y1="24" x2="32" y2="24" stroke="#1c1d20" stroke-width="2"/></svg>
+        <svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="24" r="9" stroke="#f48123" stroke-width="2"/><circle cx="34" cy="24" r="5" stroke="#1c1d20" stroke-width="2"/><line x1="24" y1="24" x2="32" y2="24" stroke="#1c1d20" stroke-width="2"/></svg>
         <h3>Powertrain components</h3>
         <p>Precision stampings for drivetrain and power transfer assemblies.</p>
       </div>
       <div class="product-card">
-        <svg viewBox="0 0 48 48" fill="none"><path d="M8 10 L40 10 L36 40 L12 40 Z" stroke="#e2570f" stroke-width="2"/><path d="M8 10 Q24 22 40 10" stroke="#1c1d20" stroke-width="2"/></svg>
+        <svg viewBox="0 0 48 48" fill="none"><path d="M8 10 L40 10 L36 40 L12 40 Z" stroke="#f48123" stroke-width="2"/><path d="M8 10 Q24 22 40 10" stroke="#1c1d20" stroke-width="2"/></svg>
         <h3>Aluminium heat shields</h3>
         <p>Lightweight thermal shielding formed to tight tolerance.</p>
       </div>
       <div class="product-card">
-        <svg viewBox="0 0 48 48" fill="none"><path d="M6 34 L14 20 L34 20 L42 34" stroke="#e2570f" stroke-width="2"/><line x1="6" y1="34" x2="42" y2="34" stroke="#1c1d20" stroke-width="2"/></svg>
+        <svg viewBox="0 0 48 48" fill="none"><path d="M6 34 L14 20 L34 20 L42 34" stroke="#f48123" stroke-width="2"/><line x1="6" y1="34" x2="42" y2="34" stroke="#1c1d20" stroke-width="2"/></svg>
         <h3>Chassis components</h3>
         <p>Load-bearing frame sections engineered for stiffness and mass targets.</p>
       </div>
